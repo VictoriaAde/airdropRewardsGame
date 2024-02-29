@@ -2,11 +2,11 @@
 pragma solidity ^0.8.19;
 
 import "./interface/IERC20.sol";
-import {VRFCoordinatorV2Interface} from "@chainlink/contracts@0.8.0/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
-import {VRFConsumerBaseV2} from "@chainlink/contracts@0.8.0/src/v0.8/vrf/VRFConsumerBaseV2.sol";
-import {ConfirmedOwner} from "@chainlink/contracts@0.8.0/src/v0.8/shared/access/ConfirmedOwner.sol";
+import {VRFCoordinatorV2Interface} from "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
+import {VRFConsumerBaseV2} from "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
+import {ConfirmedOwner} from "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol";
 
-contract PrizeDistribution is VRFConsumerBaseV2, ConfirmedOwner{
+contract AirdropRewardGame is VRFConsumerBaseV2, ConfirmedOwner{
     IERC20 public prizeToken;
     uint64 s_subscriptionId;
 
