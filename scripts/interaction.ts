@@ -3,27 +3,23 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 
 async function main() {
-  const socialMediaAddr = "0x8d8BeE988E144a6bF7180EB8A454a51E815C4820";
+  const tokenAddr = "0x07d1ad5B9F0752527e37b065a4752aEdc28D0457";
+  const airdropRewardsAddr = "0xcEc8854F6D87B1a100a36F46C835D4607F685dA1";
 
-  const socialMedia = await ethers.getContractAt(
-    "ISocialMedia",
-    socialMediaAddr
+  const airdropRewards = await ethers.getContractAt(
+    "IRewardToken",
+    airdropRewardsAddr
   );
 
-  const name = "Vic";
-  const symbol = "VK";
-  const role = 1;
+  const tokenContract = await ethers.getContractAt("IERC20", tokenAddr);
 
-  const uri = "ipfs/QmbLw2oDhFrivbiqWStZj9zwjHFD5ETiAazVsREUzPjJyw";
-  const caption = "Cute White cat. I love this NFT";
+  const register = await airdropRewards.registerParticipant();
+  await register.wait();
 
-  //   const registerUser = await socialMedia.registerUser(name, symbol, role);
-  //   await registerUser.wait();
+  // const requestWords = await airdropRewards.requestRandomWords();
+  // await requestWords.wait();
 
-  // function createPost(string memory _uri, string memory _caption) external;
-
-  //   const createPost = await socialMedia.createPost(uri, caption);
-  //   await createPost.wait();
+  // console.log(requestWords);
 }
 
 main().catch((error) => {

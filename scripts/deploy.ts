@@ -7,7 +7,7 @@ async function main() {
 
   const airdropRewards = await ethers.deployContract(
     "AirdropRewardGame",
-    [subID, vrfCor, tokenAddr],
+    [vrfCor, tokenAddr, subID],
     {}
   );
 
